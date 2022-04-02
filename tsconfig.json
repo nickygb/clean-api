@@ -25,7 +25,7 @@
 
     /* Module Resolution Options */
     "moduleResolution": "node",
-    "baseUrl": ".",
+    // "baseUrl": ".",
     "esModuleInterop": true,
 
     /* Experimental Options */
