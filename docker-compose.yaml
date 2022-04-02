@@ -1,0 +1,28 @@
+version: '3.2'
+services:
+  local-data-api:
+    image: koxudaxi/local-data-api:0.6.0
+    restart: always
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3307
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      RESOURCE_ARN: 'arn:aws:rds:us-east-1:1111111111:cluster:mydb'
+      SECRET_ARN: 'arn:aws:secretsmanager:us-east-1:1111111111:secret:mydb'
+    ports:
+      - '8060:80'
+    networks:
+      - my_network
+  mysql:
+    image: 'mysql:5.6'
+    environment:
+      MYSQL_DATABASE: mydb
+      MYSQL_ROOT_PASSWORD: secret
+    ports:
+      - '3307:3306'
+    networks:
+      - my_network
+
+networks:
+  my_network:
