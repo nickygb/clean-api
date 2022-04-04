@@ -18,7 +18,7 @@ export class Server {
 
   public async listen(port: number) {
     const listen = this.app.listen(port);
-    console.log(`Server running: http://localhost:${port}`);
+    console.log(`Server running: http://localhost:${port}/docs`);
     return listen;
   }
 }

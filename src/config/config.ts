@@ -15,5 +15,7 @@ export const config = {
     resourceArn: env.AURORA_RESOURCE_ARN,
     port: env.AURORA_PORT,
     endpoint: env.AURORA_ENDPOINT,
+    sslEnabled: env.NODE_ENV === 'local' ? false : true,
+    keepAlive: env.NODE_ENV === 'local' ? false : true,
   },
 };
