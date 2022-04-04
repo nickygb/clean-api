@@ -9,5 +9,10 @@
   "routes": {
     "routesDir": "build",
     "iocModule": "src/ioc"
+  },
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }

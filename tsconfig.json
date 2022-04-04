@@ -6,6 +6,7 @@
     "module": "commonjs",
     "outDir": "build",
     "resolveJsonModule": true,
+    "types": ["reflect-metadata", "node"],
 
     /* Strict Type-Checking Options */
     "strict": true,

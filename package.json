@@ -25,6 +25,7 @@
     "aws-sdk": "^2.1106.0",
     "concurrently": "^7.0.0",
     "eslint": "^8.12.0",
+    "kill-port": "^1.6.1",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.15",
     "ts-node": "^10.7.0",
@@ -33,7 +34,8 @@
   "scripts": {
     "migration:make": "npx knex --knexfile migrations/knexfile.ts migrate:make -x ts",
     "migrate:upAll": "npx knex --knexfile migrations/knexfile.ts migrate:latest",
-    "start:db": "docker-compose up -d",
+    "start:db": "docker-compose up -d && yarn migrate:upAll",
+    "stop:db": "docker-compose down -v",
     "build": "tsoa spec-and-routes && tsc",
     "dev": "NODE_ENV=local concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\""
   }
